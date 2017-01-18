@@ -3,9 +3,9 @@
 <h2>Log in</h2>
 
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="form-group">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), id:"login-form") do |f| %>
 <%= render 'shared/devisenotification' %>
-  <div class="form-group">
     <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"Email" %>
   </div>
 
@@ -25,5 +25,9 @@
   </div>
 <% end %>
 </br>
+<%= link_to "Login With Facebook", user_facebook_omniauth_authorize_path, class:"btn btn-primary"%>
+<%= link_to "Login With Google ", user_google_oauth2_omniauth_authorize_path, class:"btn btn-primary"%>
+
+
 </div>
 </div>

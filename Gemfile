@@ -18,6 +18,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'toastr-rails'
+gem 'figaro'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'byebug', platform: :mri

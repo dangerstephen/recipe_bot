@@ -6,6 +6,7 @@
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true }) do |f| %>
+<div class="form-row">
 <%= render 'shared/devisenotification' %>
 
   <div class="form-group">
@@ -28,5 +29,7 @@
   </div>
 <% end %>
 <br>
+<%= link_to "Login With Facebook", user_facebook_omniauth_authorize_path, class:"btn btn-primary"%>
+</div>
 </div>
 </div>
