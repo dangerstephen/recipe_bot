@@ -4,7 +4,10 @@
 @import url('https://fonts.googleapis.com/css?family=Overpass+Mono');
 
 
-
+.recipe-image{
+  height: 200px;
+  width: 200px;
+}
 // Styles just for the pages home
  body, .homepage {
   background: url(cooking_block.jpg) no-repeat center center fixed;
@@ -13,6 +16,8 @@
   -o-background-size: cover;
   background-size: cover;
   color:white;
+  font-family: 'Overpass Mono', monospace;
+
     .navbar-default .navbar-nav > li > a {
         color: white;
     }
@@ -78,8 +83,8 @@ h1 {
   border-radius: 4px;
 }
 .form-control:focus, .form-control:focus + .fa {
-  border-color: #bb4040;
-  color: #bb4040;
+  border-color: #33140c;
+  color: #33140c;
 }
 
 .form-group .fa {
@@ -90,7 +95,7 @@ h1 {
 }
 
 .log-btn {
-  background: #bb4040;
+  background: #7a7a7a;
   dispaly: inline-block;
   width: 100%;
   font-size: 16px;
@@ -113,4 +118,10 @@ h1 {
 .link:hover {
   text-decoration: underline;
   color: #8C918F;
+}
+
+hr.style12 {
+	height: 6px;
+	background: url(http://ibrahimjabbari.com/english/images/hr-12.png) repeat-x 0 0;
+    border: 0;
 }

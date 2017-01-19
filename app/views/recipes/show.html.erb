@@ -1,0 +1,17 @@
+<%= image_tag @recipe.image.url(:thumb), class:"recipe-image" %>
+<%= @recipe.title %>
+<%= @recipe.description %>
+<br>
+Ingredients: <ul>
+<% @recipe.ingredients.each do |ingredient| %>
+<li><%= ingredient.name %> </li>
+<% end %>
+</ul>
+Directions: <ul>
+<% @recipe.directions.each do |direction| %>
+<li><%= direction.step %> </li>
+<% end %>
+</ul>
+
+<%= link_to "Edit", edit_recipe_path, class:"btn btn-info" %>
+<%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-info" %>

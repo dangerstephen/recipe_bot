@@ -23,6 +23,9 @@ gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem "paperclip"
+gem "cocoon"
+
 
 group :development, :test do
   gem 'byebug', platform: :mri
