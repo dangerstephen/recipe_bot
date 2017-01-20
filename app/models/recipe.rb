@@ -1,4 +1,5 @@
 class Recipe < ApplicationRecord
+  belongs_to :user
   has_many :ingredients
   has_many :directions
 
@@ -13,7 +14,7 @@ class Recipe < ApplicationRecord
   validates :description, presence: true
 
 
-  has_attached_file :image, styles: { medium: "400x400#", thumb: "100x100#" }, default_url: "http://www.prepsos.com/media/catalog/product/cache/1/image/1200x1200/9df78eab33525d08d6e5fb8d27136e95/placeholder/default/Product-Image-Coming-Soon.jpg"
+  has_attached_file :image, styles: { medium: "400x400#", thumb: "100x100#" }, default_url: "https://t3.ftcdn.net/jpg/01/32/80/44/240_F_132804403_Fzf78ONebsM5WZodfoTrTakOmCYlN67T.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
 

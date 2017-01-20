@@ -1,6 +1,8 @@
 Recipes#index
 <br>
 <% @recipes.each do |recipe| %>
-<%= image_tag recipe.image.url(:thumb), class:"recipe-image" %>
-<%= link_to recipe.title, recipe %><br>
+<div class="col-md-4">
+    <%= image_tag recipe.image.url(:thumb), class:"recipe-image" %><br>
+    <%= link_to recipe.title, recipe, class:"" %>
+</div>
 <% end %>

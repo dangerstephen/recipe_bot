@@ -25,6 +25,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem "paperclip"
 gem "cocoon"
+gem 'sidekiq'
+gem 'sinatra', github: 'sinatra/sinatra'
 
 
 group :development, :test do

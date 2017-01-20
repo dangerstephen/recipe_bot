@@ -5,6 +5,7 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable,
     :omniauthable
 
+
     validates :fullname, presence: true, length: { maximum: 50 }
 
     def self.from_omniauth(auth)
@@ -24,6 +25,7 @@ class User < ApplicationRecord
         end
     end
 
+    has_many :recipes
 
 
 

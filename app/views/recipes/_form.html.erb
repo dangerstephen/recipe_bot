@@ -1,31 +1,33 @@
 <%= form_for @recipe, html: {multipart: true} do |f| %>
 <div class="form-group">
-<%= f.text_field :title, class:"form-control", placeholder:"Recipe Title" %>
+    <%= f.text_field :title, class:"form-control", placeholder:"Recipe Title" %>
 </div>
 <div class="form-group">
-<%= f.text_area :description, class:"form-control", placeholder:"Recipe description" %>
+    <%= f.text_area :description, class:"form-control", placeholder:"Recipe description" %>
 </div>
 <div id="ingredients">
-  <div class="form-group">
-<%= f.fields_for :ingredients do |ingredient| %>
-<%= render 'ingredient_fields', f: ingredient %>
-<% end %>
-<%= link_to_add_association "Add ingredients", f, :ingredients, class:"btn btn-default add-button" %>
-</div>
+    <div class="form-group">
+        <%= f.fields_for :ingredients do |ingredient| %>
+        <%= render 'ingredient_fields', f: ingredient %>
+        <% end %>
+        <%= link_to_add_association "Add ingredients", f, :ingredients, class:"btn btn-default add-button" %>
+    </div>
 </div>
 <div id="directions">
-<div class="form-group">
-<%= f.fields_for :directions do |direction| %>
-<%= render 'direction_fields', f: direction %>
-<% end %>
-<%= link_to_add_association "Add direction", f, :directions, class:"btn btn-default add-button" %>
-</div>
+    <div class="form-group">
+        <%= f.fields_for :directions do |direction| %>
+        <%= render 'direction_fields', f: direction %>
+        <% end %>
+        <%= link_to_add_association "Add direction", f, :directions, class:"btn btn-default add-button" %>
+    </div>
 </div>
 
 <div class="form-group">
-<%= f.file_field :image %>
+    <%= f.file_field :image %>
 </div>
 <div class="form-group">
-<%= f.submit "Save Recipe", class:"btn btn-primary" %>
+    <%= f.submit "Save Recipe", class:"btn btn-primary" %>
 </div>
+
 <% end %>
+<%= link_to "Cancel", recipes_path, class:"btn btn-primary" %>
