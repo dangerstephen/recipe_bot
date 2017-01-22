@@ -1,4 +1,5 @@
 <%= form_for @recipe, html: {multipart: true} do |f| %>
+
 <div class="form-group">
     <%= f.text_field :title, class:"form-control", placeholder:"Recipe Title" %>
 </div>
@@ -28,6 +29,4 @@
 <div class="form-group">
     <%= f.submit "Save Recipe", class:"btn btn-primary" %>
 </div>
-
 <% end %>
-<%= link_to "Cancel", recipes_path, class:"btn btn-primary" %>

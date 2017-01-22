@@ -10,4 +10,7 @@ Rails.application.routes.draw do
                               }
   resources :recipes
 
+  post "/run" => "recipes#run", as: "recipes_run"
+
+
 end

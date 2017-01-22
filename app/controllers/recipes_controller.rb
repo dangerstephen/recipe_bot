@@ -2,9 +2,74 @@ class RecipesController < ApplicationController
     before_action :find_recipe, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!, expect: [:show]
 
-    def index
-        @recipes = Recipe.all
+    require 'nokogiri'
+    require 'open-uri'
 
+    def run
+        url = p params[:my_url]
+        if url.include? "damndelicious.net"
+            doc = Nokogiri::HTML(open(url))
+            recipe = Recipe.create do |recipe|
+                recipe.user_id = current_user.id
+                recipe.title = doc.at_css("h1").text
+                recipe.description = doc.at_css("em").text
+                recipe.url = url
+                # recipe end
+            end
+            doc.css(".ingredient").each do |classes|
+                Ingredient.create!(name: classes.text, recipe_id: Recipe.last.id)
+                # instruction end
+            end
+            doc.css(".instructions li").each do |classes|
+                Direction.create!(step: classes.text, recipe_id: Recipe.last.id)
+                # direction end
+            end
+            redirect_to recipe, notice: "Scraped Recipe, please check to verify everything looks correct"
+        elsif url.include? "foodnetwork.com"
+            doc = Nokogiri::HTML(open(url))
+            recipe = Recipe.create do |recipe|
+                recipe.user_id = current_user.id
+                recipe.title = doc.at_css("h1").text
+                recipe.description = doc.at_css("q").text
+                recipe.url = url
+                # recipe end
+            end
+            doc.css(".box-block").each do |classes|
+                Ingredient.create!(name: classes.text, recipe_id: Recipe.last.id)
+                # instruction end
+            end
+            doc.css(".recipe-directions-list p").each do |classes|
+                Direction.create!(step: classes.text, recipe_id: Recipe.last.id)
+                # direction end
+            end
+            redirect_to recipe, notice: "Scraped Recipe, please check to verify everything looks correct"
+        elsif url.include? "allrecipes.com"
+            doc = Nokogiri::HTML(open(url))
+            recipe = Recipe.create do |recipe|
+                recipe.user_id = current_user.id
+                recipe.title = doc.at_css(".recipe-summary__h1").text
+                recipe.description = doc.at_css(".submitter__description").text
+                recipe.url = url
+                # recipe end
+            end
+            doc.css(".added").each do |classes|
+                Ingredient.create!(name: classes.text, recipe_id: Recipe.last.id)
+                # instruction end
+            end
+            doc.css(".step").each do |classes|
+                Direction.create!(step: classes.text, recipe_id: Recipe.last.id)
+                # direction end
+            end
+            redirect_to recipe, notice: "Scraped Recipe, please check to verify everything looks correct"
+        else
+            redirect_to new_recipe_url, alert: "the domain your trying to access is not yet supported"
+            # if statement end
+        end
+        # Def run end
+    end
+
+    def index
+        @recipes = current_user.recipes
     end
 
     def show
@@ -17,7 +82,7 @@ class RecipesController < ApplicationController
     def create
         @recipe = current_user.recipes.create(recipe_params)
         if @recipe.save
-            redirect_to recipes_path, notice: "Successfully created Recipe"
+            redirect_to @recipe, notice: "Successfully created Recipe"
         else
             render 'new'
         end
@@ -43,22 +108,19 @@ class RecipesController < ApplicationController
         redirect_to recipes_path, notice: "Successfully Deleted Recipe"
     end
 
-    def report
-    #   generate_recipe()
-      RecipeWorker.perform_async(dogs)
-      render text: "Request to generate recipe added to queue"
+    def scraper
+        call_rake :recipes_scraper
+        redirect_to root
     end
-
 
     private
 
     def recipe_params
-        params.require(:recipe).permit(:title, :description, :image, ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :step, :_destroy])
+        params.require(:recipe).permit(:title, :description, :image, :url, ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :step, :_destroy])
     end
 
     def find_recipe
         @recipe = Recipe.find(params[:id])
     end
-
 
 end

@@ -11,11 +11,11 @@ task :recipes_scraper => :environment do
     recipe.description = doc.at_css("em").text
   end
 
-  doc.css(".ingredient").each do |node|
-  Ingredient.create!(name: node.text, recipe_id: Recipe.last.id)
+  doc.css(".ingredient").each do |classes|
+  Ingredient.create!(name: classes.text, recipe_id: Recipe.last.id)
 end
 
-  doc.css(".instructions li").each do |node|
-  Direction.create!(step: node.text, recipe_id: Recipe.last.id)
+  doc.css(".instructions li").each do |classes|
+  Direction.create!(step: classes.text, recipe_id: Recipe.last.id)
 end
 end
