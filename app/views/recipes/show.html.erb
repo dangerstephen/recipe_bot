@@ -1,17 +1,33 @@
+<div class="row">
+  <div class="col-md-4">
 <%= image_tag @recipe.image.url(:thumb), class:"recipe-image" %>
-<%= @recipe.title %>
+</div>
+<div class="col-md-8">
+<%= @recipe.title %></br>
 <%= @recipe.description %>
-<br>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-6">
 Ingredients: <ul>
 <% @recipe.ingredients.each do |ingredient| %>
 <li><%= ingredient.name %> </li>
 <% end %>
 </ul>
+</div>
+<div class="col-md-6">
 Directions: <ul>
 <% @recipe.directions.each do |direction| %>
 <li><%= direction.step %> </li>
 <% end %>
 </ul>
+</div>
+</div>
+</br>
+<div class="row">
+  <div class="col-md-12">
 <%= link_to "Back", recipes_path, class:"btn btn-info" %>
 <%= link_to "Edit", edit_recipe_path, class:"btn btn-info" %>
 <%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-info" %>
+</div>
+</div>
