@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
     before_action :authenticate_user!, expect: [:show]
 
     def index
-        @recipes = current_user.recipes
+        @recipes = Recipe.all
 
     end
 
@@ -53,7 +53,7 @@ class RecipesController < ApplicationController
     private
 
     def recipe_params
-        params.require(:recipe).permit(:title, :description, :image, :items, ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :step, :_destroy])
+        params.require(:recipe).permit(:title, :description, :image, ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :step, :_destroy])
     end
 
     def find_recipe
