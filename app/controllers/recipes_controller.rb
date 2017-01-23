@@ -14,6 +14,7 @@ class RecipesController < ApplicationController
                 recipe.title = doc.at_css("h1").text
                 recipe.description = doc.at_css("em").text
                 recipe.url = url
+                recipe.image = doc.at('//img[@class="photo nopin pib-hover-img"]/@src').to_s
                 # recipe end
             end
             doc.css(".ingredient").each do |classes|
@@ -25,20 +26,21 @@ class RecipesController < ApplicationController
                 # direction end
             end
             redirect_to recipe, notice: "Scraped Recipe, please check to verify everything looks correct"
-        elsif url.include? "foodnetwork.com"
+        elsif url.include? "thepioneerwoman.com"
             doc = Nokogiri::HTML(open(url))
             recipe = Recipe.create do |recipe|
                 recipe.user_id = current_user.id
-                recipe.title = doc.at_css("h1").text
-                recipe.description = doc.at_css("q").text
+                recipe.title = doc.at_css(".recipe-title").text
+                # recipe.description = doc.at_css(".col-xs-7 p").text
+                recipe.image = doc.at('//img[@class="alignnone size-full wp-image-91195"]/@src').to_s
                 recipe.url = url
                 # recipe end
             end
-            doc.css(".box-block").each do |classes|
+            doc.css(".list-ingredients li").each do |classes|
                 Ingredient.create!(name: classes.text, recipe_id: Recipe.last.id)
                 # instruction end
             end
-            doc.css(".recipe-directions-list p").each do |classes|
+            doc.css(".panel+ .panel .panel-body").each do |classes|
                 Direction.create!(step: classes.text, recipe_id: Recipe.last.id)
                 # direction end
             end
@@ -50,6 +52,8 @@ class RecipesController < ApplicationController
                 recipe.title = doc.at_css(".recipe-summary__h1").text
                 recipe.description = doc.at_css(".submitter__description").text
                 recipe.url = url
+                recipe.image = doc.at('//img[@class="rec-photo"]/@src').to_s
+
                 # recipe end
             end
             doc.css(".added").each do |classes|
@@ -69,11 +73,11 @@ class RecipesController < ApplicationController
     end
 
     def index
-        @recipes = Recipe.all
+        @recipes = Recipe.all.order("created_at DESC")
     end
 
     def my_recipes
-        @recipes = current_user.recipes
+        @recipes = current_user.recipes.order("created_at DESC")
     end
 
     def show

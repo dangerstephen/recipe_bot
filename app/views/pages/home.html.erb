@@ -1,1 +1,8 @@
-PAGES#HOME
+<% if user_signed_in? %>
+
+HELLO YOU ARE SIGNED IN
+
+<% else %>
+ YOU ARE NOT SIGNED IN YET
+
+ <% end %>
