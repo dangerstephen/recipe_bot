@@ -31,6 +31,12 @@
 
 }
 
+.recipe-card-show{
+  background: #eee;
+  border-radius: 4px;
+  color:black;
+}
+
 
 // Login Form
 * {
@@ -124,4 +130,20 @@ hr.style12 {
 	height: 6px;
 	background: url(http://ibrahimjabbari.com/english/images/hr-12.png) repeat-x 0 0;
     border: 0;
+}
+
+// RECIPE CARD
+
+
+
+// RECIPE CARD
+.recipe-card {
+	position: relative;
+	background: white;
+	max-width: 600px;
+	max-height:275px;
+	display: flex;
+	flex-direction: row;
+	box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  margin: 8px;
 }

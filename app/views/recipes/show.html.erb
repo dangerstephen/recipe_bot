@@ -1,34 +1,42 @@
-<div class="row">
-  <div class="col-md-4">
-<%= image_tag @recipe.image.url(:thumb), class:"recipe-image" %>
+<div class="recipe-card-show">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1><%= @recipe.title %></h1>
+        </br>
+        <%= @recipe.description %>
+        From:
+        <%= link_to @recipe.url, @recipe.url.to_s %>
+    </div>
 </div>
-<div class="col-md-8">
-<%= @recipe.title %></br>
-<%= @recipe.description %>
-<%= link_to @recipe.url, @recipe.url.to_s %>
-</div>
-</div>
-<div class="row">
-  <div class="col-md-6">
-Ingredients: <ul>
-<% @recipe.ingredients.each do |ingredient| %>
-<li><%= ingredient.name %> </li>
-<% end %>
-</ul>
-</div>
-<div class="col-md-6">
-Directions: <ul>
-<% @recipe.directions.each do |direction| %>
-<li><%= direction.step %> </li>
-<% end %>
-</ul>
-</div>
-</div>
+<br>
+    <div class="row">
+        <div class="col-md-4">
+            Ingredients:
+            <ul>
+                <% @recipe.ingredients.each do |ingredient| %>
+                <li><%= ingredient.name %>
+                </li>
+                <% end %>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            Directions:
+            <ol>
+                <% @recipe.directions.each do |direction| %>
+                <li><%= direction.step %>
+                </li>
+                <% end %>
+            </ol>
+        </div>
+    </div>
 </br>
 <div class="row">
-  <div class="col-md-12">
-<%= link_to "Back", recipes_path, class:"btn btn-info" %>
-<%= link_to "Edit", edit_recipe_path, class:"btn btn-info" %>
-<%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-info" %>
+    <div class="col-md-12">
+        <%= link_to "Back", recipes_path, class:"btn btn-info" %>
+        <% if @recipe.user_id == current_user.id %>
+        <%= link_to "Edit", edit_recipe_path, class:"btn btn-info" %>
+        <%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-info" %>
+        <% end %>
+    </div>
 </div>
 </div>

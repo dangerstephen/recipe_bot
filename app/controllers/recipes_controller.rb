@@ -69,6 +69,10 @@ class RecipesController < ApplicationController
     end
 
     def index
+        @recipes = Recipe.all
+    end
+
+    def my_recipes
         @recipes = current_user.recipes
     end
 
