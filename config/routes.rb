@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   post "/run" => "recipes#run", as: "recipes_run"
   get "/my_recipes" =>"recipes#my_recipes", as: "my_recipes"
+  get "/import_new_recipe" => "recipes#import", as: "import_recipe"
 
 
 end

@@ -71,6 +71,8 @@ class RecipesController < ApplicationController
         end
         # Def run end
     end
+    def import
+    end 
 
     def index
         @recipes = Recipe.all.order("created_at DESC")
