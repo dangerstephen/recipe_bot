@@ -16,4 +16,7 @@
 //= require toastr
 //= require cocoon
 //= require turbolinks
+//= require moment
+//= require fullcalendar
+//= require daterangepicker
 //= require_tree .

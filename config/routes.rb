@@ -14,5 +14,9 @@ Rails.application.routes.draw do
   get "/my_recipes" =>"recipes#my_recipes", as: "my_recipes"
   get "/import_new_recipe" => "recipes#import", as: "import_recipe"
 
+  resources :meals
+  get "/calander" => 'meals#calander'
+
+
 
 end
