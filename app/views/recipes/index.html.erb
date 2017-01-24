@@ -2,9 +2,11 @@
 <% @recipes.each do |recipe| %>
 <div class="col-md-6">
 <div class="recipe-card">
-
+    <% if recipe.image_url? %>
+        <%= image_tag recipe.image_url, class:"recipe-image" %><br>
+        <% else %>
         <%= image_tag recipe.image.url, class:"recipe-image" %><br>
-
+    <% end %>
     <div class="recipe-title">
         <h2><%= link_to recipe.title, recipe, class:"" %></h2>
     </div>

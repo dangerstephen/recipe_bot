@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
                 recipe.title = doc.at_css("h1").text
                 recipe.description = doc.at_css("em").text
                 recipe.url = url
-                recipe.image = doc.at('//img[@class="photo nopin pib-hover-img"]/@src').to_s
+                recipe.image_url = doc.at('//img[@class="photo nopin pib-hover-img"]/@src').to_s
                 # recipe end
             end
             doc.css(".ingredient").each do |classes|
@@ -32,7 +32,7 @@ class RecipesController < ApplicationController
                 recipe.user_id = current_user.id
                 recipe.title = doc.at_css(".recipe-title").text
                 # recipe.description = doc.at_css(".col-xs-7 p").text
-                recipe.image = doc.at('//img[@class="alignnone size-full wp-image-91195"]/@src').to_s
+                recipe.image_url = doc.at('//img[@class="alignnone size-full wp-image-91195"]/@src').to_s
                 recipe.url = url
                 # recipe end
             end
@@ -52,7 +52,7 @@ class RecipesController < ApplicationController
                 recipe.title = doc.at_css(".recipe-summary__h1").text
                 recipe.description = doc.at_css(".submitter__description").text
                 recipe.url = url
-                recipe.image = doc.at('//img[@class="rec-photo"]/@src').to_s
+                recipe.image_url = doc.at('//img[@class="rec-photo"]/@src').to_s
 
                 # recipe end
             end

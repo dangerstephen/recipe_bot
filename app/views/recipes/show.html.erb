@@ -3,6 +3,12 @@
         <div class="col-md-12 text-center">
             <h1><%= @recipe.title %></h1>
         </br>
+        <% if @recipe.image_url? %>
+            <%= image_tag @recipe.image_url, class:"recipe-image" %><br>
+            <% else %>
+            <%= image_tag @recipe.image.url, class:"recipe-image" %><br>
+        <% end %>
+
         <%= @recipe.description %></br></br>
         Via:<%= link_to @recipe.url, @recipe.url.to_s %>
     </div>
