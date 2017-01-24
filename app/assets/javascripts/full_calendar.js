@@ -6,7 +6,7 @@ initialize_calendar = function() {
       header: {
         left: 'prev,next today',
         center: 'title',
-        right: 'month,agendaDay'
+        right: 'month,agendaDay,listWeek'
       },
       selectable: true,
       selectHelper: true,
@@ -49,6 +49,7 @@ initialize_calendar = function() {
         });
       }
     });
-  })
+})
+
 };
 $(document).on('turbolinks:load', initialize_calendar);

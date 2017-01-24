@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
-@import "fullcalendar";
+@import "fullcalendar.min";
 @import "daterangepicker";
 
 @import url('https://fonts.googleapis.com/css?family=Overpass+Mono');
@@ -11,28 +11,30 @@
   height: 200px;
   width: 200px;
 }
+
+
 // Styles just for the pages home
- body, .homepage {
-  background: url(http://i.imgur.com/lWEo7pD.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  color:white;
-  font-family: 'Overpass Mono', monospace;
-
-    .navbar-default .navbar-nav > li > a {
-        color: white;
-    }
-    .navbar-default .navbar-brand {
-        color: white;
-    }
-    .navbar-default {
-         background-color: transparent;
-        border-color: transparent;
-    }
-
-}
+//  body, .homepage {
+//   background: url(http://i.imgur.com/lWEo7pD.jpg) no-repeat center center fixed;
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   -o-background-size: cover;
+//   background-size: cover;
+//   color:white;
+//   font-family: 'Overpass Mono', monospace;
+//
+//     .navbar-default .navbar-nav > li > a {
+//         color: white;
+//     }
+//     .navbar-default .navbar-brand {
+//         color: white;
+//     }
+//     .navbar-default {
+//          background-color: transparent;
+//         border-color: transparent;
+//     }
+//
+// }
 
 .recipe-card-show{
   background: #eee;

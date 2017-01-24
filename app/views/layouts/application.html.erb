@@ -13,10 +13,11 @@
     <body class="<%= @home_page ? 'homepage' : ''%>">
         <%= render 'shared/navbar' %>
         <%= render 'shared/notifications' %>
-
-        <div class="container">
+        <main role="main">
+          <div class='container'>
             <%= yield %>
-        </div>
-
+            <div id='remote_container'></div>
+          </div>
+        </main>
     </body>
 </html>

@@ -13,10 +13,10 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require toastr
-//= require cocoon
 //= require turbolinks
 //= require moment
-//= require fullcalendar
+//= require fullcalendar.min
 //= require daterangepicker
+//= require toastr
+//= require cocoon
 //= require_tree .
