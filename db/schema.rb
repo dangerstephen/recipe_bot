@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20170124212630) do
     t.datetime "start"
     t.datetime "end"
     t.string   "color"
+    t.integer  "user_id"
+    t.integer  "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

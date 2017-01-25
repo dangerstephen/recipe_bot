@@ -5,6 +5,8 @@ class CreateMeals < ActiveRecord::Migration[5.0]
       t.datetime :start
       t.datetime :end
       t.string :color
+      t.integer  :user_id
+      t.integer :recipe_id
 
       t.timestamps
     end

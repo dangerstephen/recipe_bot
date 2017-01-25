@@ -1,6 +1,7 @@
 class Meal < ApplicationRecord
   belongs_to :user
   validates :title, presence: true
+  
 attr_accessor :date_range
 
 def all_day_event?

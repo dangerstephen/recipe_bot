@@ -1,8 +1,13 @@
 class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+
 
 def index
-  @meals = Meal.where(start: params[:start]..params[:end])
+
+  @meals = current_user.meals
+  puts @meals
+
 end
 
 def show
@@ -34,7 +39,7 @@ private
   end
 
   def meal_params
-    params.require(:meal).permit(:title, :date_range, :start, :end, :color)
+    params.require(:meal).permit(:title, :date_range, :start, :end, :color, :user_id)
   end
 
 end
