@@ -65,6 +65,27 @@ class RecipesController < ApplicationController
                 # direction end
             end
             redirect_to recipe, notice: "Scraped Recipe, please check to verify everything looks correct"
+          # 
+        #   elsif url.include? "pinterest.com"
+        #       doc = Nokogiri::HTML(open(url))
+        #       recipe = Recipe.create do |recipe|
+        #           recipe.user_id = current_user.id
+        #           recipe.title = doc.at_css(".richPinNameLink").text
+        #           recipe.description = doc.at_css(".descriptionSection").text
+        #           recipe.url = url
+        #         #   recipe.image_url = doc.at('//img[@class="rec-photo"]/@src').to_s
+          #
+        #           # recipe end
+        #       end
+        #       doc.css(".pinDescriptionItemName").each do |classes|
+        #           Ingredient.create!(name: classes.text, recipe_id: Recipe.last.id)
+        #           # instruction end
+        #       end
+        #       doc.css(".step").each do |classes|
+        #           Direction.create!(step: classes.text, recipe_id: Recipe.last.id)
+        #           # direction end
+        #       end
+        #       redirect_to recipe, notice: "Scraped Recipe, please check to verify everything looks correct"
         else
             redirect_to new_recipe_url, alert: "the domain your trying to access is not yet supported"
             # if statement end
@@ -72,7 +93,7 @@ class RecipesController < ApplicationController
         # Def run end
     end
     def import
-    end 
+    end
 
     def index
         @recipes = Recipe.all.order("created_at DESC")
