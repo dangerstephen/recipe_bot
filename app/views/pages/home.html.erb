@@ -1,8 +1,18 @@
 <% if user_signed_in? %>
 
-HELLO YOU ARE SIGNED IN
+<script type="text/javascript">
+    window.location.href="/my_recipes"
+  </script>
 
 <% else %>
- YOU ARE NOT SIGNED IN YET
+
+<div class="row">
+    <div class="col-sm-12 entry-word">
+        <h2 class="uppercase large"><strong>Recipe<strong></h2>
+        <h2 class="uppercase large"> <strong>Bots<strong></h2>
+        <h4>A new way to store recipes and generate meal plans</h4>
+    </div>
+</div>
+
 
  <% end %>

@@ -37,7 +37,7 @@
 </br>
 <div class="row">
     <div class="col-md-12">
-        <%= link_to "Back", recipes_path, class:"btn btn-info" %>
+        <%= link_to "Back", my_recipes_path, class:"btn btn-info" %>
         <% if @recipe.user_id == current_user.id %>
         <%= link_to "Edit", edit_recipe_path, class:"btn btn-info" %>
         <%= link_to "Delete", recipe_path, method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-info" %>

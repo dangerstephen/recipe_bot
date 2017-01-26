@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require moment
 //= require fullcalendar.min
+//= require jquery-ui.min
 //= require daterangepicker
 //= require toastr
 //= require cocoon

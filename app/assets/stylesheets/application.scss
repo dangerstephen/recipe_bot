@@ -14,27 +14,68 @@
 
 
 // Styles just for the pages home
-//  body, .homepage {
-//   background: url(http://i.imgur.com/lWEo7pD.jpg) no-repeat center center fixed;
-//   -webkit-background-size: cover;
-//   -moz-background-size: cover;
-//   -o-background-size: cover;
-//   background-size: cover;
-//   color:white;
-//   font-family: 'Overpass Mono', monospace;
-//
-//     .navbar-default .navbar-nav > li > a {
-//         color: white;
-//     }
-//     .navbar-default .navbar-brand {
-//         color: white;
-//     }
-//     .navbar-default {
-//          background-color: transparent;
-//         border-color: transparent;
-//     }
-//
-// }
+  body{
+  background: url(http://i.imgur.com/lWEo7pD.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color:white;
+  font-family: 'Overpass Mono', monospace;
+
+    .navbar-default .navbar-nav > li > a {
+        color: white;
+    }
+    .navbar-default .navbar-brand {
+        color: white;
+    }
+    .navbar-default {
+         background-color: transparent;
+        border-color: transparent;
+    }
+
+}
+
+.homepage {
+  background: url(https://unsplash.com/search/white?photo=0vw4InAC-yM) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color:black;
+  font-family: 'Overpass Mono', monospace;
+
+    .navbar-default .navbar-nav > li > a {
+        color: black;
+    }
+    .navbar-default .navbar-brand {
+        color: black;
+    }
+    .navbar-default {
+         background-color: transparent;
+        border-color: transparent;
+    }
+
+}
+
+h2.uppercase {
+    letter-spacing: 17px;
+    margin-right: -17px;
+}
+
+h2.large {
+
+  padding-top: 0px;
+  margin-top: 0px;
+    font-size: 72px;
+    line-height: 80px;
+    font-weight: 100;
+}
+
+.entry-word{
+     position: absolute; left: 10%; top: 35%;
+color: white;
+}
 
 .recipe-card-show{
   background: #eee;
@@ -151,4 +192,51 @@ hr.style12 {
 	flex-direction: row;
 	box-shadow: 0 6px 16px rgba(0,0,0,0.15);
   margin: 8px;
+}
+.cal_body {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+}
+
+#wrap {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+#external-events {
+  float: left;
+  width: 150px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  background: #eee;
+  text-align: left;
+}
+
+#external-events h4 {
+  font-size: 16px;
+  margin-top: 0;
+  padding-top: 1em;
+}
+
+#external-events .fc-event {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+#external-events p {
+  margin: 1.5em 0;
+  font-size: 11px;
+  color: #666;
+}
+
+#external-events p input {
+  margin: 0;
+  vertical-align: middle;
+}
+
+.calendar {
+  float: right;
+  width: 900px;
 }
