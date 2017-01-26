@@ -1,28 +1,19 @@
-<div class="col-md-12"> <h1><strong>&nbsp;&nbsp;&nbsp;My Meal Plan</strong><h1> </div>
-
 <div class="cal_body">
+			<h1><strong>&nbsp;&nbsp;&nbsp;My Meal Plan</strong></h1>
+			<p class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To plan a meal simply hit a date, select a recipe and boom. Meal Planed. <p>
+		<div class='calendar'>
+				</div>
 
-	<div id='wrap'>
-
-		<div id='external-events'>
-			<h4>My Recipe Book</h4>
-			<% @recipes_arr.each do |recipe| %>
-			<div class='fc-event'>
-				<%= recipe %>
-			</div>
-			<% end %>
-			<p>
-				<input type='checkbox' id='drop-remove' />
-				<label for='drop-remove'>remove after drop</label>
-			</p>
-		</div>
-
-		<div class='calendar'></div>
-
-		<div style='clear:both'></div>
-
-	</div>
+				<div id='external-events'>
+					<h4>My Recipe Book</h4>
+					<% @recipes_arr.each do |recipe| %>
+					<div class='fc-event'>
+						<%= recipe %>
+					</div>
+					<% end %>
+					<p>
+						<input type='checkbox' id='drop-remove' />
+						<label for='drop-remove'>remove after drop</label>
+					</p>
+				</div>
   	</div>
-
-
-		<!-- TOOK OUT NORMAL SYTLING FOR CAL find it in recipe index -->

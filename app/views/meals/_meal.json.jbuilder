@@ -1,5 +1,6 @@
 date_format = meal.all_day_event? ? '%Y-%m-%d' : '%Y-%m-%dT%H:%M:%S'
 
+# json.create meal.create
 json.id meal.id
 json.title meal.title
 json.start meal.start.strftime(date_format)

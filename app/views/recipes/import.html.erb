@@ -1,4 +1,17 @@
-<div class="col-md-12"> <h1><strong>Grab recipe via URL</strong><h1> </div>
-<%= render 'scraper_form' %>
-Or manually create recipe <%=link_to "click here", new_recipe_url %><br/>
-<%= link_to "Cancel", my_recipes_path, class:"btn btn-default" %>
+<div class="recipe-form-import">
+
+    <div class="col-md-12">
+        <h1>
+            <strong>Grab recipe via URL</strong>
+        </h1>
+        <p class="text-center">
+            To import your favorite Recieps simply paste in the Recipes url and hit import. We're currently optomized to import from some our users most used sites. Such as: allrecipes.com, damndelicious.com & thepioneerwoman.com Not the sites you use? Let us
+            know and we will work to get your loved sites to be supported!
+        </p>
+
+        <%= render 'scraper_form' %>
+        <%=link_to "Manually create recipe here", new_recipe_url, class:"link" %><br/>
+        <%= link_to "Cancel", my_recipes_path, class:"btn" %><br/>
+
+    </div>
+</div>
