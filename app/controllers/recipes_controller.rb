@@ -5,11 +5,13 @@ class RecipesController < ApplicationController
     require 'nokogiri'
     require 'open-uri'
 
+    # TODO: I would extract this to a separate file and call it from here.  This is such an important piece of your app that it deserves its own file.  Also it just makes your controller way too big.
     def run
         url = p params[:my_url]
         if url.include? "damndelicious.net"
             doc = Nokogiri::HTML(open(url))
             recipe = Recipe.create do |recipe|
+                #TODO: I see a lot of recipe manipulation. Could you extract lines 15 to 19 and similar codebase below into a function? That would make this a lot smaller and easier to read.
                 recipe.user_id = current_user.id
                 recipe.title = doc.at_css("h1").text
                 recipe.description = doc.at_css("em").text
@@ -65,7 +67,8 @@ class RecipesController < ApplicationController
                 # direction end
             end
             redirect_to recipe, notice: "Scraped Recipe, please check to verify everything looks correct"
-          # 
+            # TODO: remove unused code from production
+          #
         #   elsif url.include? "pinterest.com"
         #       doc = Nokogiri::HTML(open(url))
         #       recipe = Recipe.create do |recipe|
@@ -92,6 +95,7 @@ class RecipesController < ApplicationController
         end
         # Def run end
     end
+
     def import
     end
 
@@ -115,6 +119,7 @@ class RecipesController < ApplicationController
         if @recipe.save
             redirect_to @recipe, notice: "Successfully created Recipe"
         else
+            # TODO: include a flash error message
             render 'new'
         end
     end
@@ -130,6 +135,7 @@ class RecipesController < ApplicationController
         if @recipe.update (recipe_params)
             redirect_to @recipe, notice: "Successfully updated Recipe"
         else
+          # TODO: include a flash error message
             render 'edit'
         end
     end
