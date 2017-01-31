@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  # TODO: Explain the routes and groupings with comments
   # root 'recipes#index'
   root 'pages#home'
 

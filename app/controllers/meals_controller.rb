@@ -24,11 +24,13 @@ end
 
 def create
   @meal = Meal.create(meal_params)
+  # TODO: NO error handling?
   redirect_to meal_plan_path
 end
 
 def update
   @meal.update(meal_params)
+  # TODO: NO error handling?
   redirect_to meal_plan_path
 
 end
