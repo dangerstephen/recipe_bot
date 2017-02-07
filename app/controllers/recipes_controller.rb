@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
     require 'nokogiri'
     require 'open-uri'
 
+  
     # TODO: I would extract this to a separate file and call it from here.  This is such an important piece of your app that it deserves its own file.  Also it just makes your controller way too big.
     def run
         url = p params[:my_url]
@@ -67,28 +68,6 @@ class RecipesController < ApplicationController
                 # direction end
             end
             redirect_to recipe, notice: "Scraped Recipe, please check to verify everything looks correct"
-            # TODO: remove unused code from production
-          #
-        #   elsif url.include? "pinterest.com"
-        #       doc = Nokogiri::HTML(open(url))
-        #       recipe = Recipe.create do |recipe|
-        #           recipe.user_id = current_user.id
-        #           recipe.title = doc.at_css(".richPinNameLink").text
-        #           recipe.description = doc.at_css(".descriptionSection").text
-        #           recipe.url = url
-        #         #   recipe.image_url = doc.at('//img[@class="rec-photo"]/@src').to_s
-          #
-        #           # recipe end
-        #       end
-        #       doc.css(".pinDescriptionItemName").each do |classes|
-        #           Ingredient.create!(name: classes.text, recipe_id: Recipe.last.id)
-        #           # instruction end
-        #       end
-        #       doc.css(".step").each do |classes|
-        #           Direction.create!(step: classes.text, recipe_id: Recipe.last.id)
-        #           # direction end
-        #       end
-        #       redirect_to recipe, notice: "Scraped Recipe, please check to verify everything looks correct"
         else
             redirect_to new_recipe_url, alert: "the domain your trying to access is not yet supported"
             # if statement end

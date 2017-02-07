@@ -1,20 +1,22 @@
-<div class="col-md-12"> <h1><strong>Recipe Book</strong><h1> </div>
-<div class="row">
+<div class="col-md-12">
+    <h1>
+        <strong>Recipe Book</strong>
+        <h1></div>
+        <div class="row">
 
-<% @recipes.each do |recipe| %>
-<!-- TODO: Mind yourn indentation -->
-<div class="col-md-6">
-<div class="recipe-card">
-<% if recipe.image_url? %>
-    <%= image_tag recipe.image_url, class:"recipe-image" %><br>
-    <% else %>
-    <%= image_tag recipe.image.url, class:"recipe-image" %><br>
-<% end %>
+            <% @recipes.each do |recipe| %>
+            <div class="col-md-6">
+                <div class="recipe-card">
+                    <% if recipe.image_url? %>
+                    <%= image_tag recipe.image_url, class:"recipe-image" %><br>
+                <% else %>
+                    <%= image_tag recipe.image.url, class:"recipe-image" %><br>
+                    <% end %>
 
-    <div class="recipe-title">
-        <h3><%= link_to recipe.title, recipe, class:"" %></h3>
-    </div>
-</div>
-</div>
-<% end %>
-</div>
+                    <div class="recipe-title">
+                        <h3><%= link_to recipe.title, recipe, class:"" %></h3>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>

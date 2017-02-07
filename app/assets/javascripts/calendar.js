@@ -72,20 +72,6 @@ $(document).ready(function() {
        $(this).data('event', {
              title: $.trim($(this).text()), // use the element's text as the event title
             stick: true,
-            // events: '/meals.json',
-            //
-            // eventDrop: function(start, end) {
-            //     $.getScript('/meals/new', function() {
-            //         $('#title').val("Hey");
-            //         $('#meal_date_range').val(moment(start).format("MM/DD/YYYY HH:mm") + ' - ' + moment(end).format("MM/DD/YYYY HH:mm"))
-            //         date_range_picker();
-            //         $('.start_hidden').val(moment(start).format('YYYY-MM-DD HH:mm'));
-            //         $('.end_hidden').val(moment(end).format('YYYY-MM-DD HH:mm'));
-            //     });
-            //
-            // }
-
-
         });
 
 
